@@ -3,8 +3,20 @@ Understanding of ckpt, pb and tflite and the conversion among them
 
 ## 1. Understanding
 ### A. ckpt
+  * It is heavy to use for inference, because it contains files necessary for training.
+  * So it is able to re-training using ckpt.
+  * Files
+    * model-9900.ckpt.data-00000-of-00001 : Including all variables except the structure of the model. Model can be restored using meta and index file
+    * model-9900.ckpt.index : Including the mapping information between data and meta file
+    * model-9900.ckpt.meta : Including the graph of model except variables
+
 ### B. pb
+  * Binary file including only graph and variables for inference
+    
 ### C. tflite
+  * It is the light version of the tensorflow model.
+  * It can be applied various method to weight lighting.
+  * It is suitable for putting in devices with low computing power, such as mobile devices.
 
 ## 2. Conversion
 | from \  to    | ckpt  | pb    | tflite |
