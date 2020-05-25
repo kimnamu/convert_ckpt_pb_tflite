@@ -28,14 +28,25 @@ Understanding of ckpt, pb and tflite and the conversion among them
 | tflite        |[tflite2ckpt.py](www.naver.com)|[tflite2pb.py](www.naver.com)|☕️|
 
  a. From ckpt to pb (freeze):
-```bash
-$ python freeze_graph.py \
---input_graph=./model/ckpt/model.pb \
---input_binary=true \
---input_checkpoint=./model/ckpt/model-900 \
---output_graph=./model/pb/frozen_model.pb \
---output_node_names=ArgMax 
-```
+   * Print the structure of pb file
+   ```bash
+   $ python summary_pb.py --input=./model/ckpt/model.pb --output=./summary_pb.txt
+   ```
+   * See the tensorboard of model
+   ```bash
+   $ tensorboard --logdir ./logs
+   # TensorBoard 1.14.0 at http://localhost:6006/ (Press CTRL+C to quit)
+   ```
+   
+   * Run the freeze
+   ```bash
+   $ python freeze_graph.py \
+   --input_graph=./model/ckpt/model.pb \
+   --input_binary=true \
+   --input_checkpoint=./model/ckpt/model-900 \
+   --output_graph=./model/pb/frozen_model.pb \
+   --output_node_names=ArgMax 
+   ```
 
 ## 3. Compare the performance
 
