@@ -27,6 +27,15 @@ Understanding of ckpt, pb and tflite and the conversion among them
 | pb            |[pb2ckpt.py](www.naver.com)|🍦|[pb2tflite.py](www.naver.com)|
 | tflite        |[tflite2ckpt.py](www.naver.com)|[tflite2pb.py](www.naver.com)|☕️|
 
+ a. From ckpt to pb (freeze):
+```bash
+$ python freeze_graph.py \
+--input_graph=./model/ckpt/model.pb \
+--input_binary=true \
+--input_checkpoint=./model/ckpt/model-900 \
+--output_graph=./model/pb/frozen_model.pb \
+--output_node_names=ArgMax 
+```
 
 ## 3. Compare the performance
 
