@@ -1,0 +1,695 @@
+import/Placeholder	Placeholder	[? 784 ]
+
+import/Placeholder_1	Placeholder	[? 10 ]
+
+import/Reshape/shape	Const	[4 ]
+
+import/Reshape	Reshape	[? 28 28 1 ]
+
+import/truncated_normal/shape	Const	[4 ]
+
+import/truncated_normal/mean	Const	[]
+
+import/truncated_normal/stddev	Const	[]
+
+import/truncated_normal/TruncatedNormal	TruncatedNormal	[5 5 1 32 ]
+
+import/truncated_normal/mul	Mul	[5 5 1 32 ]
+
+import/truncated_normal	Add	[5 5 1 32 ]
+
+import/Variable	VariableV2	[5 5 1 32 ]
+
+import/Variable/Assign	Assign	[5 5 1 32 ]
+
+import/Variable/read	Identity	[5 5 1 32 ]
+
+import/Const	Const	[32 ]
+
+import/Variable_1	VariableV2	[32 ]
+
+import/Variable_1/Assign	Assign	[32 ]
+
+import/Variable_1/read	Identity	[32 ]
+
+import/Conv2D	Conv2D	[? 28 28 32 ]
+
+import/add	Add	[? 28 28 32 ]
+
+import/Relu	Relu	[? 28 28 32 ]
+
+import/MaxPool	MaxPool	[? 14 14 32 ]
+
+import/truncated_normal_1/shape	Const	[4 ]
+
+import/truncated_normal_1/mean	Const	[]
+
+import/truncated_normal_1/stddev	Const	[]
+
+import/truncated_normal_1/TruncatedNormal	TruncatedNormal	[5 5 32 64 ]
+
+import/truncated_normal_1/mul	Mul	[5 5 32 64 ]
+
+import/truncated_normal_1	Add	[5 5 32 64 ]
+
+import/Variable_2	VariableV2	[5 5 32 64 ]
+
+import/Variable_2/Assign	Assign	[5 5 32 64 ]
+
+import/Variable_2/read	Identity	[5 5 32 64 ]
+
+import/Const_1	Const	[64 ]
+
+import/Variable_3	VariableV2	[64 ]
+
+import/Variable_3/Assign	Assign	[64 ]
+
+import/Variable_3/read	Identity	[64 ]
+
+import/Conv2D_1	Conv2D	[? 14 14 64 ]
+
+import/add_1	Add	[? 14 14 64 ]
+
+import/Relu_1	Relu	[? 14 14 64 ]
+
+import/MaxPool_1	MaxPool	[? 7 7 64 ]
+
+import/truncated_normal_2/shape	Const	[2 ]
+
+import/truncated_normal_2/mean	Const	[]
+
+import/truncated_normal_2/stddev	Const	[]
+
+import/truncated_normal_2/TruncatedNormal	TruncatedNormal	[3136 1024 ]
+
+import/truncated_normal_2/mul	Mul	[3136 1024 ]
+
+import/truncated_normal_2	Add	[3136 1024 ]
+
+import/Variable_4	VariableV2	[3136 1024 ]
+
+import/Variable_4/Assign	Assign	[3136 1024 ]
+
+import/Variable_4/read	Identity	[3136 1024 ]
+
+import/Const_2	Const	[1024 ]
+
+import/Variable_5	VariableV2	[1024 ]
+
+import/Variable_5/Assign	Assign	[1024 ]
+
+import/Variable_5/read	Identity	[1024 ]
+
+import/Reshape_1/shape	Const	[2 ]
+
+import/Reshape_1	Reshape	[? 3136 ]
+
+import/MatMul	MatMul	[? 1024 ]
+
+import/add_2	Add	[? 1024 ]
+
+import/Relu_2	Relu	[? 1024 ]
+
+import/truncated_normal_3/shape	Const	[2 ]
+
+import/truncated_normal_3/mean	Const	[]
+
+import/truncated_normal_3/stddev	Const	[]
+
+import/truncated_normal_3/TruncatedNormal	TruncatedNormal	[1024 10 ]
+
+import/truncated_normal_3/mul	Mul	[1024 10 ]
+
+import/truncated_normal_3	Add	[1024 10 ]
+
+import/Variable_6	VariableV2	[1024 10 ]
+
+import/Variable_6/Assign	Assign	[1024 10 ]
+
+import/Variable_6/read	Identity	[1024 10 ]
+
+import/Const_3	Const	[10 ]
+
+import/Variable_7	VariableV2	[10 ]
+
+import/Variable_7/Assign	Assign	[10 ]
+
+import/Variable_7/read	Identity	[10 ]
+
+import/MatMul_1	MatMul	[? 10 ]
+
+import/add_3	Add	[? 10 ]
+
+import/Softmax	Softmax	[? 10 ]
+
+import/softmax_cross_entropy_with_logits_sg/labels_stop_gradient	StopGradient	[? 10 ]
+
+import/softmax_cross_entropy_with_logits_sg/Rank	Const	[]
+
+import/softmax_cross_entropy_with_logits_sg/Shape	Shape	[2 ]
+
+import/softmax_cross_entropy_with_logits_sg/Rank_1	Const	[]
+
+import/softmax_cross_entropy_with_logits_sg/Shape_1	Shape	[2 ]
+
+import/softmax_cross_entropy_with_logits_sg/Sub/y	Const	[]
+
+import/softmax_cross_entropy_with_logits_sg/Sub	Sub	[]
+
+import/softmax_cross_entropy_with_logits_sg/Slice/begin	Pack	[1 ]
+
+import/softmax_cross_entropy_with_logits_sg/Slice/size	Const	[1 ]
+
+import/softmax_cross_entropy_with_logits_sg/Slice	Slice	[1 ]
+
+import/softmax_cross_entropy_with_logits_sg/concat/values_0	Const	[1 ]
+
+import/softmax_cross_entropy_with_logits_sg/concat/axis	Const	[]
+
+import/softmax_cross_entropy_with_logits_sg/concat	ConcatV2	[2 ]
+
+import/softmax_cross_entropy_with_logits_sg/Reshape	Reshape	[? ? ]
+
+import/softmax_cross_entropy_with_logits_sg/Rank_2	Const	[]
+
+import/softmax_cross_entropy_with_logits_sg/Shape_2	Shape	[2 ]
+
+import/softmax_cross_entropy_with_logits_sg/Sub_1/y	Const	[]
+
+import/softmax_cross_entropy_with_logits_sg/Sub_1	Sub	[]
+
+import/softmax_cross_entropy_with_logits_sg/Slice_1/begin	Pack	[1 ]
+
+import/softmax_cross_entropy_with_logits_sg/Slice_1/size	Const	[1 ]
+
+import/softmax_cross_entropy_with_logits_sg/Slice_1	Slice	[1 ]
+
+import/softmax_cross_entropy_with_logits_sg/concat_1/values_0	Const	[1 ]
+
+import/softmax_cross_entropy_with_logits_sg/concat_1/axis	Const	[]
+
+import/softmax_cross_entropy_with_logits_sg/concat_1	ConcatV2	[2 ]
+
+import/softmax_cross_entropy_with_logits_sg/Reshape_1	Reshape	[? ? ]
+
+import/softmax_cross_entropy_with_logits_sg	SoftmaxCrossEntropyWithLogits	[? ]
+
+import/softmax_cross_entropy_with_logits_sg/Sub_2/y	Const	[]
+
+import/softmax_cross_entropy_with_logits_sg/Sub_2	Sub	[]
+
+import/softmax_cross_entropy_with_logits_sg/Slice_2/begin	Const	[1 ]
+
+import/softmax_cross_entropy_with_logits_sg/Slice_2/size	Pack	[1 ]
+
+import/softmax_cross_entropy_with_logits_sg/Slice_2	Slice	[1 ]
+
+import/softmax_cross_entropy_with_logits_sg/Reshape_2	Reshape	[? ]
+
+import/Const_4	Const	[1 ]
+
+import/Mean	Mean	[]
+
+import/gradients/Shape	Const	[0 ]
+
+import/gradients/grad_ys_0	Const	[]
+
+import/gradients/Fill	Fill	[]
+
+import/gradients/Mean_grad/Reshape/shape	Const	[1 ]
+
+import/gradients/Mean_grad/Reshape	Reshape	[1 ]
+
+import/gradients/Mean_grad/Shape	Shape	[1 ]
+
+import/gradients/Mean_grad/Tile	Tile	[? ]
+
+import/gradients/Mean_grad/Shape_1	Shape	[1 ]
+
+import/gradients/Mean_grad/Shape_2	Const	[0 ]
+
+import/gradients/Mean_grad/Const	Const	[1 ]
+
+import/gradients/Mean_grad/Prod	Prod	[]
+
+import/gradients/Mean_grad/Const_1	Const	[1 ]
+
+import/gradients/Mean_grad/Prod_1	Prod	[]
+
+import/gradients/Mean_grad/Maximum/y	Const	[]
+
+import/gradients/Mean_grad/Maximum	Maximum	[]
+
+import/gradients/Mean_grad/floordiv	FloorDiv	[]
+
+import/gradients/Mean_grad/Cast	Cast	[]
+
+import/gradients/Mean_grad/truediv	RealDiv	[? ]
+
+import/gradients/softmax_cross_entropy_with_logits_sg/Reshape_2_grad/Shape	Shape	[1 ]
+
+import/gradients/softmax_cross_entropy_with_logits_sg/Reshape_2_grad/Reshape	Reshape	[? ]
+
+import/gradients/zeros_like	ZerosLike	[? ? ]
+
+import/gradients/softmax_cross_entropy_with_logits_sg_grad/ExpandDims/dim	Const	[]
+
+import/gradients/softmax_cross_entropy_with_logits_sg_grad/ExpandDims	ExpandDims	[? 1 ]
+
+import/gradients/softmax_cross_entropy_with_logits_sg_grad/mul	Mul	[? ? ]
+
+import/gradients/softmax_cross_entropy_with_logits_sg_grad/LogSoftmax	LogSoftmax	[? ? ]
+
+import/gradients/softmax_cross_entropy_with_logits_sg_grad/Neg	Neg	[? ? ]
+
+import/gradients/softmax_cross_entropy_with_logits_sg_grad/ExpandDims_1/dim	Const	[]
+
+import/gradients/softmax_cross_entropy_with_logits_sg_grad/ExpandDims_1	ExpandDims	[? 1 ]
+
+import/gradients/softmax_cross_entropy_with_logits_sg_grad/mul_1	Mul	[? ? ]
+
+import/gradients/softmax_cross_entropy_with_logits_sg_grad/tuple/group_deps	NoOp	[import/gradients/softmax_cross_entropy_with_logits_sg_grad/tuple/control_dependency	Identity	[? ? ]
+
+import/gradients/softmax_cross_entropy_with_logits_sg_grad/tuple/control_dependency_1	Identity	[? ? ]
+
+import/gradients/softmax_cross_entropy_with_logits_sg/Reshape_grad/Shape	Shape	[2 ]
+
+import/gradients/softmax_cross_entropy_with_logits_sg/Reshape_grad/Reshape	Reshape	[? 10 ]
+
+import/gradients/add_3_grad/Shape	Shape	[2 ]
+
+import/gradients/add_3_grad/Shape_1	Const	[1 ]
+
+import/gradients/add_3_grad/BroadcastGradientArgs	BroadcastGradientArgs	[? ]
+
+import/gradients/add_3_grad/Sum	Sum	[]
+
+import/gradients/add_3_grad/Reshape	Reshape	[? 10 ]
+
+import/gradients/add_3_grad/Sum_1	Sum	[]
+
+import/gradients/add_3_grad/Reshape_1	Reshape	[10 ]
+
+import/gradients/add_3_grad/tuple/group_deps	NoOp	[import/gradients/add_3_grad/tuple/control_dependency	Identity	[? 10 ]
+
+import/gradients/add_3_grad/tuple/control_dependency_1	Identity	[10 ]
+
+import/gradients/MatMul_1_grad/MatMul	MatMul	[? 1024 ]
+
+import/gradients/MatMul_1_grad/MatMul_1	MatMul	[1024 10 ]
+
+import/gradients/MatMul_1_grad/tuple/group_deps	NoOp	[import/gradients/MatMul_1_grad/tuple/control_dependency	Identity	[? 1024 ]
+
+import/gradients/MatMul_1_grad/tuple/control_dependency_1	Identity	[1024 10 ]
+
+import/gradients/Relu_2_grad/ReluGrad	ReluGrad	[? 1024 ]
+
+import/gradients/add_2_grad/Shape	Shape	[2 ]
+
+import/gradients/add_2_grad/Shape_1	Const	[1 ]
+
+import/gradients/add_2_grad/BroadcastGradientArgs	BroadcastGradientArgs	[? ]
+
+import/gradients/add_2_grad/Sum	Sum	[]
+
+import/gradients/add_2_grad/Reshape	Reshape	[? 1024 ]
+
+import/gradients/add_2_grad/Sum_1	Sum	[]
+
+import/gradients/add_2_grad/Reshape_1	Reshape	[1024 ]
+
+import/gradients/add_2_grad/tuple/group_deps	NoOp	[import/gradients/add_2_grad/tuple/control_dependency	Identity	[? 1024 ]
+
+import/gradients/add_2_grad/tuple/control_dependency_1	Identity	[1024 ]
+
+import/gradients/MatMul_grad/MatMul	MatMul	[? 3136 ]
+
+import/gradients/MatMul_grad/MatMul_1	MatMul	[3136 1024 ]
+
+import/gradients/MatMul_grad/tuple/group_deps	NoOp	[import/gradients/MatMul_grad/tuple/control_dependency	Identity	[? 3136 ]
+
+import/gradients/MatMul_grad/tuple/control_dependency_1	Identity	[3136 1024 ]
+
+import/gradients/Reshape_1_grad/Shape	Shape	[4 ]
+
+import/gradients/Reshape_1_grad/Reshape	Reshape	[? 7 7 64 ]
+
+import/gradients/MaxPool_1_grad/MaxPoolGrad	MaxPoolGrad	[? 14 14 64 ]
+
+import/gradients/Relu_1_grad/ReluGrad	ReluGrad	[? 14 14 64 ]
+
+import/gradients/add_1_grad/Shape	Shape	[4 ]
+
+import/gradients/add_1_grad/Shape_1	Const	[1 ]
+
+import/gradients/add_1_grad/BroadcastGradientArgs	BroadcastGradientArgs	[? ]
+
+import/gradients/add_1_grad/Sum	Sum	[]
+
+import/gradients/add_1_grad/Reshape	Reshape	[? 14 14 64 ]
+
+import/gradients/add_1_grad/Sum_1	Sum	[]
+
+import/gradients/add_1_grad/Reshape_1	Reshape	[64 ]
+
+import/gradients/add_1_grad/tuple/group_deps	NoOp	[import/gradients/add_1_grad/tuple/control_dependency	Identity	[? 14 14 64 ]
+
+import/gradients/add_1_grad/tuple/control_dependency_1	Identity	[64 ]
+
+import/gradients/Conv2D_1_grad/ShapeN	ShapeN	[4 ]
+
+import/gradients/Conv2D_1_grad/Conv2DBackpropInput	Conv2DBackpropInput	[? 14 14 32 ]
+
+import/gradients/Conv2D_1_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	[5 5 32 64 ]
+
+import/gradients/Conv2D_1_grad/tuple/group_deps	NoOp	[import/gradients/Conv2D_1_grad/tuple/control_dependency	Identity	[? 14 14 32 ]
+
+import/gradients/Conv2D_1_grad/tuple/control_dependency_1	Identity	[5 5 32 64 ]
+
+import/gradients/MaxPool_grad/MaxPoolGrad	MaxPoolGrad	[? 28 28 32 ]
+
+import/gradients/Relu_grad/ReluGrad	ReluGrad	[? 28 28 32 ]
+
+import/gradients/add_grad/Shape	Shape	[4 ]
+
+import/gradients/add_grad/Shape_1	Const	[1 ]
+
+import/gradients/add_grad/BroadcastGradientArgs	BroadcastGradientArgs	[? ]
+
+import/gradients/add_grad/Sum	Sum	[]
+
+import/gradients/add_grad/Reshape	Reshape	[? 28 28 32 ]
+
+import/gradients/add_grad/Sum_1	Sum	[]
+
+import/gradients/add_grad/Reshape_1	Reshape	[32 ]
+
+import/gradients/add_grad/tuple/group_deps	NoOp	[import/gradients/add_grad/tuple/control_dependency	Identity	[? 28 28 32 ]
+
+import/gradients/add_grad/tuple/control_dependency_1	Identity	[32 ]
+
+import/gradients/Conv2D_grad/ShapeN	ShapeN	[4 ]
+
+import/gradients/Conv2D_grad/Conv2DBackpropInput	Conv2DBackpropInput	[? 28 28 1 ]
+
+import/gradients/Conv2D_grad/Conv2DBackpropFilter	Conv2DBackpropFilter	[5 5 1 32 ]
+
+import/gradients/Conv2D_grad/tuple/group_deps	NoOp	[import/gradients/Conv2D_grad/tuple/control_dependency	Identity	[? 28 28 1 ]
+
+import/gradients/Conv2D_grad/tuple/control_dependency_1	Identity	[5 5 1 32 ]
+
+import/beta1_power/initial_value	Const	[]
+
+import/beta1_power	VariableV2	[]
+
+import/beta1_power/Assign	Assign	[]
+
+import/beta1_power/read	Identity	[]
+
+import/beta2_power/initial_value	Const	[]
+
+import/beta2_power	VariableV2	[]
+
+import/beta2_power/Assign	Assign	[]
+
+import/beta2_power/read	Identity	[]
+
+import/Variable/Adam/Initializer/zeros	Const	[5 5 1 32 ]
+
+import/Variable/Adam	VariableV2	[5 5 1 32 ]
+
+import/Variable/Adam/Assign	Assign	[5 5 1 32 ]
+
+import/Variable/Adam/read	Identity	[5 5 1 32 ]
+
+import/Variable/Adam_1/Initializer/zeros	Const	[5 5 1 32 ]
+
+import/Variable/Adam_1	VariableV2	[5 5 1 32 ]
+
+import/Variable/Adam_1/Assign	Assign	[5 5 1 32 ]
+
+import/Variable/Adam_1/read	Identity	[5 5 1 32 ]
+
+import/Variable_1/Adam/Initializer/zeros	Const	[32 ]
+
+import/Variable_1/Adam	VariableV2	[32 ]
+
+import/Variable_1/Adam/Assign	Assign	[32 ]
+
+import/Variable_1/Adam/read	Identity	[32 ]
+
+import/Variable_1/Adam_1/Initializer/zeros	Const	[32 ]
+
+import/Variable_1/Adam_1	VariableV2	[32 ]
+
+import/Variable_1/Adam_1/Assign	Assign	[32 ]
+
+import/Variable_1/Adam_1/read	Identity	[32 ]
+
+import/Variable_2/Adam/Initializer/zeros/shape_as_tensor	Const	[4 ]
+
+import/Variable_2/Adam/Initializer/zeros/Const	Const	[]
+
+import/Variable_2/Adam/Initializer/zeros	Fill	[5 5 32 64 ]
+
+import/Variable_2/Adam	VariableV2	[5 5 32 64 ]
+
+import/Variable_2/Adam/Assign	Assign	[5 5 32 64 ]
+
+import/Variable_2/Adam/read	Identity	[5 5 32 64 ]
+
+import/Variable_2/Adam_1/Initializer/zeros/shape_as_tensor	Const	[4 ]
+
+import/Variable_2/Adam_1/Initializer/zeros/Const	Const	[]
+
+import/Variable_2/Adam_1/Initializer/zeros	Fill	[5 5 32 64 ]
+
+import/Variable_2/Adam_1	VariableV2	[5 5 32 64 ]
+
+import/Variable_2/Adam_1/Assign	Assign	[5 5 32 64 ]
+
+import/Variable_2/Adam_1/read	Identity	[5 5 32 64 ]
+
+import/Variable_3/Adam/Initializer/zeros	Const	[64 ]
+
+import/Variable_3/Adam	VariableV2	[64 ]
+
+import/Variable_3/Adam/Assign	Assign	[64 ]
+
+import/Variable_3/Adam/read	Identity	[64 ]
+
+import/Variable_3/Adam_1/Initializer/zeros	Const	[64 ]
+
+import/Variable_3/Adam_1	VariableV2	[64 ]
+
+import/Variable_3/Adam_1/Assign	Assign	[64 ]
+
+import/Variable_3/Adam_1/read	Identity	[64 ]
+
+import/Variable_4/Adam/Initializer/zeros/shape_as_tensor	Const	[2 ]
+
+import/Variable_4/Adam/Initializer/zeros/Const	Const	[]
+
+import/Variable_4/Adam/Initializer/zeros	Fill	[3136 1024 ]
+
+import/Variable_4/Adam	VariableV2	[3136 1024 ]
+
+import/Variable_4/Adam/Assign	Assign	[3136 1024 ]
+
+import/Variable_4/Adam/read	Identity	[3136 1024 ]
+
+import/Variable_4/Adam_1/Initializer/zeros/shape_as_tensor	Const	[2 ]
+
+import/Variable_4/Adam_1/Initializer/zeros/Const	Const	[]
+
+import/Variable_4/Adam_1/Initializer/zeros	Fill	[3136 1024 ]
+
+import/Variable_4/Adam_1	VariableV2	[3136 1024 ]
+
+import/Variable_4/Adam_1/Assign	Assign	[3136 1024 ]
+
+import/Variable_4/Adam_1/read	Identity	[3136 1024 ]
+
+import/Variable_5/Adam/Initializer/zeros/shape_as_tensor	Const	[1 ]
+
+import/Variable_5/Adam/Initializer/zeros/Const	Const	[]
+
+import/Variable_5/Adam/Initializer/zeros	Fill	[1024 ]
+
+import/Variable_5/Adam	VariableV2	[1024 ]
+
+import/Variable_5/Adam/Assign	Assign	[1024 ]
+
+import/Variable_5/Adam/read	Identity	[1024 ]
+
+import/Variable_5/Adam_1/Initializer/zeros/shape_as_tensor	Const	[1 ]
+
+import/Variable_5/Adam_1/Initializer/zeros/Const	Const	[]
+
+import/Variable_5/Adam_1/Initializer/zeros	Fill	[1024 ]
+
+import/Variable_5/Adam_1	VariableV2	[1024 ]
+
+import/Variable_5/Adam_1/Assign	Assign	[1024 ]
+
+import/Variable_5/Adam_1/read	Identity	[1024 ]
+
+import/Variable_6/Adam/Initializer/zeros/shape_as_tensor	Const	[2 ]
+
+import/Variable_6/Adam/Initializer/zeros/Const	Const	[]
+
+import/Variable_6/Adam/Initializer/zeros	Fill	[1024 10 ]
+
+import/Variable_6/Adam	VariableV2	[1024 10 ]
+
+import/Variable_6/Adam/Assign	Assign	[1024 10 ]
+
+import/Variable_6/Adam/read	Identity	[1024 10 ]
+
+import/Variable_6/Adam_1/Initializer/zeros/shape_as_tensor	Const	[2 ]
+
+import/Variable_6/Adam_1/Initializer/zeros/Const	Const	[]
+
+import/Variable_6/Adam_1/Initializer/zeros	Fill	[1024 10 ]
+
+import/Variable_6/Adam_1	VariableV2	[1024 10 ]
+
+import/Variable_6/Adam_1/Assign	Assign	[1024 10 ]
+
+import/Variable_6/Adam_1/read	Identity	[1024 10 ]
+
+import/Variable_7/Adam/Initializer/zeros	Const	[10 ]
+
+import/Variable_7/Adam	VariableV2	[10 ]
+
+import/Variable_7/Adam/Assign	Assign	[10 ]
+
+import/Variable_7/Adam/read	Identity	[10 ]
+
+import/Variable_7/Adam_1/Initializer/zeros	Const	[10 ]
+
+import/Variable_7/Adam_1	VariableV2	[10 ]
+
+import/Variable_7/Adam_1/Assign	Assign	[10 ]
+
+import/Variable_7/Adam_1/read	Identity	[10 ]
+
+import/Adam/learning_rate	Const	[]
+
+import/Adam/beta1	Const	[]
+
+import/Adam/beta2	Const	[]
+
+import/Adam/epsilon	Const	[]
+
+import/Adam/update_Variable/ApplyAdam	ApplyAdam	[5 5 1 32 ]
+
+import/Adam/update_Variable_1/ApplyAdam	ApplyAdam	[32 ]
+
+import/Adam/update_Variable_2/ApplyAdam	ApplyAdam	[5 5 32 64 ]
+
+import/Adam/update_Variable_3/ApplyAdam	ApplyAdam	[64 ]
+
+import/Adam/update_Variable_4/ApplyAdam	ApplyAdam	[3136 1024 ]
+
+import/Adam/update_Variable_5/ApplyAdam	ApplyAdam	[1024 ]
+
+import/Adam/update_Variable_6/ApplyAdam	ApplyAdam	[1024 10 ]
+
+import/Adam/update_Variable_7/ApplyAdam	ApplyAdam	[10 ]
+
+import/Adam/mul	Mul	[]
+
+import/Adam/Assign	Assign	[]
+
+import/Adam/mul_1	Mul	[]
+
+import/Adam/Assign_1	Assign	[]
+
+import/Adam	NoOp	[import/ArgMax/dimension	Const	[]
+
+import/ArgMax	ArgMax	[? ]
+
+import/ArgMax_1/dimension	Const	[]
+
+import/ArgMax_1	ArgMax	[? ]
+
+import/Equal	Equal	[? ]
+
+import/Cast	Cast	[? ]
+
+import/Const_5	Const	[1 ]
+
+import/Mean_1	Mean	[]
+
+import/save/filename/input	Const	[]
+
+import/save/filename	PlaceholderWithDefault	[]
+
+import/save/Const	PlaceholderWithDefault	[]
+
+import/save/SaveV2/tensor_names	Const	[26 ]
+
+import/save/SaveV2/shape_and_slices	Const	[26 ]
+
+import/save/SaveV2	SaveV2	[import/save/control_dependency	Identity	[]
+
+import/save/RestoreV2/tensor_names	Const	[26 ]
+
+import/save/RestoreV2/shape_and_slices	Const	[26 ]
+
+import/save/RestoreV2	RestoreV2	[]
+
+import/save/Assign	Assign	[5 5 1 32 ]
+
+import/save/Assign_1	Assign	[5 5 1 32 ]
+
+import/save/Assign_2	Assign	[5 5 1 32 ]
+
+import/save/Assign_3	Assign	[32 ]
+
+import/save/Assign_4	Assign	[32 ]
+
+import/save/Assign_5	Assign	[32 ]
+
+import/save/Assign_6	Assign	[5 5 32 64 ]
+
+import/save/Assign_7	Assign	[5 5 32 64 ]
+
+import/save/Assign_8	Assign	[5 5 32 64 ]
+
+import/save/Assign_9	Assign	[64 ]
+
+import/save/Assign_10	Assign	[64 ]
+
+import/save/Assign_11	Assign	[64 ]
+
+import/save/Assign_12	Assign	[3136 1024 ]
+
+import/save/Assign_13	Assign	[3136 1024 ]
+
+import/save/Assign_14	Assign	[3136 1024 ]
+
+import/save/Assign_15	Assign	[1024 ]
+
+import/save/Assign_16	Assign	[1024 ]
+
+import/save/Assign_17	Assign	[1024 ]
+
+import/save/Assign_18	Assign	[1024 10 ]
+
+import/save/Assign_19	Assign	[1024 10 ]
+
+import/save/Assign_20	Assign	[1024 10 ]
+
+import/save/Assign_21	Assign	[10 ]
+
+import/save/Assign_22	Assign	[10 ]
+
+import/save/Assign_23	Assign	[10 ]
+
+import/save/Assign_24	Assign	[]
+
+import/save/Assign_25	Assign	[]
+
+import/save/restore_all	NoOp	[import/init	NoOp	[

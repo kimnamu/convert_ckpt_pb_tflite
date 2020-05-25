@@ -1,9 +1,27 @@
 import tensorflow as tf
+import argparse
 
-def print_pb(pb_file):
+def print_pb():
+    parser = argparse.ArgumentParser()
+    parser.register("type", "bool", lambda v: v.lower() == "true")
+    parser.add_argument(
+        "--input",
+        type=str,
+        default="",
+        help="assign the name of input pb file")
+    parser.add_argument(
+        "--output",
+        type=str,
+        default="./summary_pb.txt",
+        help="assign the name of output file"
+    )
+
+    flags, unparsed = parser.parse_known_args()
+    pb_file = flags.input
+    output = flags.output
 
     graph = tf.Graph()
-    graphDef = tf.GraphDef()
+    graphDef = tf.compat.v1.GraphDef()
     with open(pb_file, "rb") as graphFile:
         graphDef.ParseFromString(graphFile.read())
 
@@ -17,7 +35,7 @@ def print_pb(pb_file):
         tf.import_graph_def(graph_def)
 
     # print operations
-    with open("pb_information.txt", 'w+') as f:
+    with open(output, 'w+') as f:
         for op in graph.get_operations():
             f.write(op.name)
             f.write('\t')
@@ -25,13 +43,11 @@ def print_pb(pb_file):
             f.write('\t[')
             if len(op.values()) == 0:
                 continue
-            print(op.values()[0].shape)
-            print(type(op.values()[0].shape))
             if not str(op.values()[0].shape)=="<unknown>":
                 for s in op.values()[0].shape:
                     f.write(str(s))
                     f.write(' ')
             f.write(']\n\n')
 
-            
-print_pb("./model/sample.pb")
+if __name__ == "__main__":
+    print_pb()
