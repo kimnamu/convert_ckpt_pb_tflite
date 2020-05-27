@@ -1,8 +1,6 @@
 import tensorflow as tf
 import os
-
 from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("./dataset/", one_hot=True)
 
 # Define the model
 def build_CNN_classifier(x):
@@ -45,56 +43,63 @@ def build_CNN_classifier(x):
 
   return y_pred, logits
 
-# Define the placeholder(x: input, y: class)
-x = tf.placeholder(tf.float32, shape=[None, 784])
-y = tf.placeholder(tf.float32, shape=[None, 10])
+def train():
+    # read datasets
+    mnist = input_data.read_data_sets("./dataset/", one_hot=True)
 
-# Declear Convolutional Neural Networks(CNN)
-y_pred, logits = build_CNN_classifier(x)
+    # Define the placeholder(x: input, y: class)
+    x = tf.placeholder(tf.float32, shape=[None, 784])
+    y = tf.placeholder(tf.float32, shape=[None, 10])
 
-# y_pred_class = tf.math.argmax(y_pred)
+    # Declear Convolutional Neural Networks(CNN)
+    y_pred, logits = build_CNN_classifier(x)
 
-# Define the optimizer using the loss from cross entropy
-loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=y, logits=logits))
-train_step = tf.train.AdamOptimizer(1e-4).minimize(loss)
+    # y_pred_class = tf.math.argmax(y_pred)
 
-# Calculate accuracy
-correct_prediction = tf.equal(tf.argmax(y_pred, 1), tf.argmax(y, 1))
-accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+    # Define the optimizer using the loss from cross entropy
+    loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=y, logits=logits))
+    train_step = tf.train.AdamOptimizer(1e-4).minimize(loss)
+
+    # Calculate accuracy
+    correct_prediction = tf.equal(tf.argmax(y_pred, 1), tf.argmax(y, 1))
+    accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 
-# Save the model
-SAVER_DIR = "model/ckpt/"
-saver = tf.train.Saver()
-checkpoint_path = os.path.join(SAVER_DIR, "model")
-ckpt = tf.train.get_checkpoint_state(SAVER_DIR)
+    # Save the model
+    SAVER_DIR = "model/ckpt/"
+    saver = tf.train.Saver()
+    checkpoint_path = os.path.join(SAVER_DIR, "model")
+    ckpt = tf.train.get_checkpoint_state(SAVER_DIR)
 
-with tf.Session() as sess:
-    # Initialize all variable
-    sess.run(tf.global_variables_initializer())
+    with tf.Session() as sess:
+        # Initialize all variable
+        sess.run(tf.global_variables_initializer())
 
-    # # If using previous model, restore the model and test
-    # if ckpt and ckpt.model_checkpoint_path:
-    #     saver.restore(sess, ckpt.model_checkpoint_path)    
-    #     print("Test Accuracy (Restored) : %f" % accuracy.eval(feed_dict={x: mnist.test.images, y: mnist.test.labels}))
-    #     sess.close()
-    #     exit()
-    
-    # Write logs
-    writer = tf.summary.FileWriter("./logs/", sess.graph)
+        # # If using previous model, restore the model and test
+        # if ckpt and ckpt.model_checkpoint_path:
+        #     saver.restore(sess, ckpt.model_checkpoint_path)    
+        #     print("Test Accuracy (Restored) : %f" % accuracy.eval(feed_dict={x: mnist.test.images, y: mnist.test.labels}))
+        #     sess.close()
+        #     exit()
+        
+        # Write logs
+        writer = tf.summary.FileWriter("./logs/", sess.graph)
 
-    for step in range(1000):
-        # batch size 50
-        batch = mnist.train.next_batch(50)
-        # Calculate the train accuracy and save the model at each 100 steps
-        if step % 100 == 0:      
-            saver.save(sess, checkpoint_path, global_step=step)
-            tf.io.write_graph(sess.graph_def, '.', './model/ckpt/model.pb', as_text=False)
-            tf.io.write_graph(sess.graph_def, '.', './model/ckpt/model.pbtxt', as_text=True)
-            train_accuracy = accuracy.eval(feed_dict={x: batch[0], y: batch[1]})
-            print("Epoch: %d, Training Accuracy: %f" % (step, train_accuracy))
-        # Training with optimizer
-        sess.run([train_step], feed_dict={x: batch[0], y: batch[1]})
+        for step in range(1000):
+            # batch size 50
+            batch = mnist.train.next_batch(50)
+            # Calculate the train accuracy and save the model at each 100 steps
+            if step % 100 == 0:      
+                saver.save(sess, checkpoint_path, global_step=step)
+                tf.io.write_graph(sess.graph_def, '.', './model/ckpt/model.pb', as_text=False)
+                tf.io.write_graph(sess.graph_def, '.', './model/ckpt/model.pbtxt', as_text=True)
+                train_accuracy = accuracy.eval(feed_dict={x: batch[0], y: batch[1]})
+                print("Epoch: %d, Training Accuracy: %f" % (step, train_accuracy))
+            # Training with optimizer
+            sess.run([train_step], feed_dict={x: batch[0], y: batch[1]})
 
-    # Evaluate about test dataset
-    print("Test Accuracy: %f" % accuracy.eval(feed_dict={x: mnist.test.images, y: mnist.test.labels}))
+        # Evaluate about test dataset
+        print("Test Accuracy: %f" % accuracy.eval(feed_dict={x: mnist.test.images, y: mnist.test.labels}))
+
+if __name__ == "__main__":
+    train()
