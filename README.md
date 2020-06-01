@@ -47,6 +47,15 @@ Understanding of ckpt, pb and tflite and the conversion among them
    --output_graph=./model/pb/frozen_model.pb \
    --output_node_names=ArgMax 
    ```
+   * Run the freeze (When there is no .pb or .pbtxt)
+   ```bash
+  $ python freeze_graph.py \
+  --input_meta_graph=./model/ckpt/model-900.meta \
+  --input_binary=True \
+  --input_checkpoint=./model/ckpt/model-900 \
+  --output_graph=./model/pb/frozen_model.pb \
+  --output_node_names=ArgMax \
+   ```
 
 ## 3. Compare the performance
 
